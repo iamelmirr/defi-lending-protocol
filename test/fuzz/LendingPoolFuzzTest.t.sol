@@ -15,7 +15,7 @@ contract LendingPoolFuzzTest is Test {
     function setUp() public {
         lendingToken = new LendingToken();
         lendingPool = new LendingPool(address(lendingToken));
-        user1 = makeAddr('user1');
+        user1 = makeAddr("user1");
 
         lendingToken.mint(user1, 1000 ether);
 
@@ -41,7 +41,7 @@ contract LendingPoolFuzzTest is Test {
         vm.prank(user1);
         lendingPool.deposit(depositAmount);
 
-        if(amount <= 0 || amount > depositAmount) {
+        if (amount <= 0 || amount > depositAmount) {
             return;
         }
 
@@ -51,5 +51,4 @@ contract LendingPoolFuzzTest is Test {
         uint256 userDeposit = lendingPool.getUserDeposit(user1);
         assertEq(userDeposit, depositAmount - amount);
     }
-
 }

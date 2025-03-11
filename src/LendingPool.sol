@@ -61,7 +61,7 @@ contract LendingPool is Ownable {
         }
 
         bool success = token.transfer(msg.sender, amount);
-        if(!success) {
+        if (!success) {
             revert LendingPool__LendingPoolWithdrawFailed();
         }
 

@@ -18,8 +18,8 @@ contract LendingPoolTest is Test {
         lendingPool = new LendingPool(address(lendingToken));
 
         owner = address(this);
-        user1 = makeAddr('user1');
-        user2 = makeAddr('user2');
+        user1 = makeAddr("user1");
+        user2 = makeAddr("user2");
 
         lendingToken.mint(user1, 1000 ether);
         lendingToken.mint(user2, 1000 ether);
@@ -28,7 +28,7 @@ contract LendingPoolTest is Test {
         lendingToken.approve(address(lendingPool), 1000 ether);
 
         vm.prank(user2);
-        lendingToken.approve(address(lendingPool), 1000 ether);        
+        lendingToken.approve(address(lendingPool), 1000 ether);
     }
 
     function testDepositSuccess() public {
